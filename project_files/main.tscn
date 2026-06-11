@@ -8,8 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cwh1o7oflprl5" path="res://rocky-mountain-texture-seamless-thumb31 (1).png" id="6_5vw27"]
 [ext_resource type="Texture2D" uid="uid://dqnq8cvtrkfw5" path="res://seamless-wood-texture-png-mgn-yo40ngshfc4cre7u.png" id="7_kek77"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_272bh"]
-
 [sub_resource type="CylinderMesh" id="CylinderMesh_r3fl7"]
 top_radius = 0.05
 bottom_radius = 0.005
@@ -82,10 +80,6 @@ script = ExtResource("2_lquwl")
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=1900225849]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.088466585, 0)
 fov = 33.2147
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D" unique_id=126655764]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -2)
-mesh = SubResource("BoxMesh_272bh")
 
 [node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=1202177254]
 transform = Transform3D(0.042630285, 0.9960763, -0.077555194, -0.99903816, 0.04170075, -0.013566375, -0.010279007, 0.07805893, 0.9968957, 0, -0.015442312, -0.5079477)

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MWiWR Projekt"
-run/main_scene="uid://ccvxjwg6wiprf"
+run/main_scene="uid://dlrmcd25maal2"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0.24883771, 0.047485113, 0.18071952, 1)
 config/icon="res://icon.svg"

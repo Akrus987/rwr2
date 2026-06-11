@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://dlrmcd25maal2"]
+
+[ext_resource type="Script" uid="uid://cs7tdlnjn3kv3" path="res://main_node_script.gd" id="1_1bvp3"]
+[ext_resource type="Script" uid="uid://x478ms11dvjh" path="res://chodzenie.gd" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://d0c3xgeuu3vp3" path="res://Player hand.fbx" id="3_7mycd"]
+[ext_resource type="Script" uid="uid://c21yh7suyvtgr" path="res://kontroler_prawy.gd" id="4_272bh"]
+[ext_resource type="Texture2D" uid="uid://bw6qsonq1e2ui" path="res://pngtree-green-grass-texture-background-of-a-football-field-image_13748350.png" id="5_272bh"]
+[ext_resource type="Texture2D" uid="uid://cwh1o7oflprl5" path="res://rocky-mountain-texture-seamless-thumb31 (1).png" id="6_5vw27"]
+[ext_resource type="Texture2D" uid="uid://dqnq8cvtrkfw5" path="res://seamless-wood-texture-png-mgn-yo40ngshfc4cre7u.png" id="7_kek77"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r3fl7"]
+top_radius = 0.05
+bottom_radius = 0.005
+height = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c57u"]
+albedo_texture = ExtResource("5_272bh")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r3fl7"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3fl7"]
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.9
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r3fl7"]
+size = Vector3(20, 0.1, 20)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r3fl7"]
+sky_top_color = Color(0.2198314, 0.4592415, 0.71308523, 1)
+
+[sub_resource type="Sky" id="Sky_jka67"]
+sky_material = SubResource("ProceduralSkyMaterial_r3fl7")
+
+[sub_resource type="Environment" id="Environment_i5arm"]
+background_mode = 2
+background_color = Color(0.7768833, 0.2439712, 0.42687735, 1)
+background_energy_multiplier = 0.66
+sky = SubResource("Sky_jka67")
+ambient_light_sky_contribution = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_efxa6"]
+size = Vector3(1.0634766, 1, 1.0622559)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dg77c"]
+albedo_texture = ExtResource("6_5vw27")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ycdy4"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w48qg"]
+height = 4.7197266
+radius = 0.86376953
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vivmo"]
+albedo_texture = ExtResource("6_5vw27")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2cqfq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yaehf"]
+albedo_texture = ExtResource("7_kek77")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_074og"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cegan"]
+height = 4.0473633
+radius = 0.16845703
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_82xsv"]
+albedo_texture = ExtResource("5_272bh")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_getpj"]
+
+[node name="main" type="Node3D" unique_id=1608127333]
+script = ExtResource("1_1bvp3")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=1531300732]
+script = ExtResource("2_lquwl")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=1900225849]
+transform = Transform3D(0.81417656, -0.013105774, 0.5804695, -3.236877e-05, 0.9997442, 0.022617515, -0.58061737, -0.018433439, 0.8139679, 0.8269864, 0.3611683, 1.2674237)
+fov = 33.2147
+
+[node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=1202177254]
+transform = Transform3D(0.042630285, 0.9960763, -0.077555194, -0.99903816, 0.04170075, -0.013566375, -0.010279007, 0.07805893, 0.9968957, 0, 0.11790252, 0)
+tracker = &"left_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController" unique_id=1140688014]
+transform = Transform3D(0.49949667, 6.693881e-10, 0.022428676, 2.3283064e-10, 0.5, -3.7252903e-09, -0.02242868, -3.7252903e-09, 0.49949667, 0.0019285604, 0.050130967, -8.1490725e-10)
+
+[node name="Player hand" parent="XROrigin3D/LeftController/MeshInstance3D" unique_id=1286487538 instance=ExtResource("3_7mycd")]
+transform = Transform3D(0.06193684, 0.9947215, 0.08181074, 0.9967852, -0.057474293, -0.05582152, -0.050824843, 0.08500511, -0.99508363, -0.25554097, -0.021989599, -0.059387267)
+
+[node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=702861936]
+transform = Transform3D(0.9997175, -0.023769146, 0, 0.023769146, 0.9997175, 0, 0, 0, 1, 0.28954938, 0.08599243, 0)
+tracker = &"right_hand"
+show_when_tracked = true
+script = ExtResource("4_272bh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightController" unique_id=1837727602]
+transform = Transform3D(-0.49860823, 0, -0.037280574, 0, 0.5, 0, 0.037280574, 0, -0.49860823, 0, 0, 0)
+
+[node name="Player hand" parent="XROrigin3D/RightController/MeshInstance3D" unique_id=1145815606 instance=ExtResource("3_7mycd")]
+transform = Transform3D(1, 0, 0, 8.68006e-12, 1, -1.16091275e-10, 0, 0, 1, -0.0051913857, 0.21895644, -0.00038815662)
+
+[node name="TeleportRay" type="RayCast3D" parent="XROrigin3D/RightController" unique_id=643950302]
+exclude_parent = false
+target_position = Vector3(0, 0, -10)
+
+[node name="TeleportMarker" type="MeshInstance3D" parent="XROrigin3D/RightController" unique_id=258989186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014090128, 0.07742677, 0.08054422)
+visible = false
+mesh = SubResource("CylinderMesh_r3fl7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=596215835]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=2947607]
+offset_left = 311.0
+offset_top = 134.0
+offset_right = 809.0
+offset_bottom = 406.0
+text = "Enter VR"
+
+[node name="Level" type="Node3D" parent="." unique_id=1232669096]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level" unique_id=584083095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07157764, -0.09955465, 0.069301054)
+material_override = SubResource("StandardMaterial3D_4c57u")
+mesh = SubResource("PlaneMesh_r3fl7")
+surface_material_override/0 = SubResource("StandardMaterial3D_r3fl7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/MeshInstance3D" unique_id=1964996518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35638386, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/MeshInstance3D/StaticBody3D" unique_id=20714444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027, 0, -0.16)
+shape = SubResource("BoxShape3D_r3fl7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level" unique_id=233897100]
+transform = Transform3D(0.9951275, 0.094488166, -0.028165184, -0.03528015, 0.60798913, 0.79316115, 0.09206846, -0.7883028, 0.6083603, 2.8498714, 13.116328, 9.049599)
+shadow_enabled = true
+shadow_bias = 0.396
+shadow_normal_bias = 2.693
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level" unique_id=1702281904]
+environment = SubResource("Environment_i5arm")
+
+[node name="Kamien3" type="StaticBody3D" parent="Level" unique_id=747745232]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Kamien3" unique_id=1575883503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.276835, 0.46906066, -4.88785)
+shape = SubResource("BoxShape3D_efxa6")
+debug_color = Color(0, 0.6174468, 0.5880995, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Kamien3" unique_id=1293488388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2753358, 0.40597522, -4.906891)
+material_override = SubResource("StandardMaterial3D_dg77c")
+mesh = SubResource("BoxMesh_ycdy4")
+
+[node name="Kamien2" type="StaticBody3D" parent="Level" unique_id=1234792682]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Kamien2" unique_id=1246319392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1189375, 1.3598633, -0.83827394)
+shape = SubResource("CylinderShape3D_w48qg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Kamien2" unique_id=2020801516]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5.324036, 1.8888861, -0.9520216)
+material_override = SubResource("StandardMaterial3D_vivmo")
+mesh = SubResource("CylinderMesh_2cqfq")
+
+[node name="Drzewo" type="StaticBody3D" parent="Level" unique_id=575461388]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Drzewo" unique_id=999977413]
+transform = Transform3D(0.3, 0, 0, 0, 2, 0, 0, 0, 0.3, -5.814183, 1.9254392, 1.6224096)
+material_override = SubResource("StandardMaterial3D_yaehf")
+mesh = SubResource("CylinderMesh_074og")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Drzewo" unique_id=21206602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.815166, 1.926826, 1.6166673)
+shape = SubResource("CylinderShape3D_cegan")
+
+[node name="Liscie" type="StaticBody3D" parent="Level/Drzewo" unique_id=431719515]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Drzewo/Liscie" unique_id=2068126709]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.7912345, 4.456313, 1.6172234)
+material_override = SubResource("StandardMaterial3D_82xsv")
+mesh = SubResource("CapsuleMesh_getpj")
+
+[node name="Kamien" type="StaticBody3D" parent="." unique_id=466267234]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kamien" unique_id=341378287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.276835, 0.46906066, -4.88785)
+shape = SubResource("BoxShape3D_efxa6")
+debug_color = Color(0, 0.6174468, 0.5880995, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Kamien" unique_id=42221841]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1195278, 0.43518245, -4.6950207)
+material_override = SubResource("StandardMaterial3D_dg77c")
+mesh = SubResource("BoxMesh_ycdy4")

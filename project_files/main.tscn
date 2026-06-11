@@ -77,11 +77,10 @@ script = ExtResource("1_1bvp3")
 script = ExtResource("2_lquwl")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=1900225849]
-transform = Transform3D(0.81417656, -0.013105774, 0.5804695, -3.236877e-05, 0.9997442, 0.022617515, -0.58061737, -0.018433439, 0.8139679, 0.8269864, 0.3611683, 1.2674237)
 fov = 33.2147
 
 [node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=1202177254]
-transform = Transform3D(0.042630285, 0.9960763, -0.077555194, -0.99903816, 0.04170075, -0.013566375, -0.010279007, 0.07805893, 0.9968957, 0, 0.11790252, 0)
+transform = Transform3D(0.042630285, 0.9960763, -0.077555194, -0.99903816, 0.04170075, -0.013566375, -0.010279007, 0.07805893, 0.9968957, 0, -0.015442312, -0.5079477)
 tracker = &"left_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController" unique_id=1140688014]
@@ -91,7 +90,7 @@ transform = Transform3D(0.49949667, 6.693881e-10, 0.022428676, 2.3283064e-10, 0.
 transform = Transform3D(0.06193684, 0.9947215, 0.08181074, 0.9967852, -0.057474293, -0.05582152, -0.050824843, 0.08500511, -0.99508363, -0.25554097, -0.021989599, -0.059387267)
 
 [node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=702861936]
-transform = Transform3D(0.9997175, -0.023769146, 0, 0.023769146, 0.9997175, 0, 0, 0, 1, 0.28954938, 0.08599243, 0)
+transform = Transform3D(0.9997175, -0.023769146, 0, 0.023769146, 0.9997175, 0, 0, 0, 1, 0.23999804, -0.038940303, -0.58609575)
 tracker = &"right_hand"
 show_when_tracked = true
 script = ExtResource("4_272bh")

@@ -64,12 +64,12 @@ func _on_button_pressed() -> void:
 
 func _webxr_session_started() -> void:
 	$CanvasLayer.visible = false
-  # This tells Godot to start rendering to the headset.
 	get_viewport().use_xr = true
-  # This will be the reference space type you ultimately got, out of the
-  # types that you requested above. This is useful if you want the game to
-  # work a little differently in 'bounded-floor' versus 'local-floor'.
-	print ("Reference space type: " + webxr_interface.reference_space_type)
+
+	await get_tree().process_frame
+	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
+
+	print("Reference space type: " + webxr_interface.reference_space_type)
 
 func _webxr_session_ended() -> void:
 	$CanvasLayer.visible = true
